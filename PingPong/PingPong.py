@@ -104,8 +104,15 @@ class Player(GameSprite):
        if keys[K_s] and self.rect.y < h - 80:
            self.rect.y += self.speed
 
-ping11 = Player(ping1, 10, h/2.1, 10, 10, 70)
-ping22 = Player(ping2, 780, h/2.1, 10, 10, 70)
+ping11 = Player(ping1, 10, h/2.2, 10, 10, 70)
+ping22 = Player(ping2, 780, h/2.2, 10, 10, 70)
+bol = GameSprite(bol, w/2.05, h/2.05, 4, 20, 20)
+
+
+font.init()
+font = font.Font(None, 35)
+lose1 = font.render('PLAYER 1 LOSE!', True, (60, 60, 60))
+lose2 = font.render('PLAYER 2 LOSE!', True, (60, 60, 60))
 
 run = True
 finish = False
@@ -121,6 +128,7 @@ while run:
         ping22.reset()
         ping11.update_l()
         ping22.update_r()
+        bol.reset()
     
     display.update()
     time.delay(60)
